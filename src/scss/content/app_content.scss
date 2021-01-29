@@ -1,0 +1,33 @@
+.app_container {
+	width: 100%;
+	padding: remy(10) remy(23);
+
+	.title_container {
+		margin-bottom: remy(16);
+
+		.title {
+			font-size: remy(32);
+			margin-bottom: 0rem;
+		}
+	}
+
+	.search_box_container {
+		width: 100%;
+		margin-bottom: remy(15);
+	}
+
+	.results_container {
+		display: grid;
+    grid-template-columns: repeat(1,1fr);
+		grid-template-rows: repeat(1,auto);
+		
+		@include desktop {
+			grid-template-columns: repeat(4,1fr);
+		}
+	}
+
+	@include desktop {
+		max-width: remy(1200);
+		margin: remy(8) auto;
+	}
+}

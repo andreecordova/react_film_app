@@ -1,0 +1,124 @@
+.modal {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 0;
+	border-radius: 4px;
+
+	&.show {
+		z-index: 1;
+	}
+
+	.modal_content {
+		max-width: 100%;
+		margin: 0rem auto;
+		background-color: $white;
+
+		.modal_header {
+			padding: remy(15);
+
+			.title {
+				font-size: remy(24);
+				font-weight: 600;
+				margin: 0;
+			}
+		}
+
+		.modal_body {
+			padding: remy(15) 0rem;
+			margin: 0rem remy(15);
+			border-top: 1px solid $gray;
+			border-bottom: 1px solid $gray;
+			display: grid;
+			grid-template-columns: repeat(1,1fr);
+			grid-template-rows: repeat(1,auto);
+
+			.modal_image {
+				width: 100%;
+
+				@include desktop {
+					height: remy(500);
+				}
+			}
+
+			.image_content {
+				padding: 0;
+
+				@include desktop {
+					padding: remy(15);
+				}
+			}
+
+			.information_content {
+				padding: remy(15);
+
+				.year {
+					font-size: remy(20);
+					margin-bottom: remy(10);
+					font-weight: 600;
+					font-style: italic;
+				}
+
+				.director {
+					font-size: remy(20);
+					margin-bottom: 0;
+					font-weight: 500;
+				}
+				
+				.actors {
+					font-size: remy(20);
+					margin-bottom: 0;
+					font-weight: 500;
+				}
+
+				.awards {
+					font-size: remy(20);
+					margin-bottom: 0;
+					font-weight: 500;
+				}
+
+				.plot {
+					font-size: remy(20);
+					margin-bottom: 0;
+					font-style: italic;
+				}
+			}
+
+			@include desktop {
+				grid-template-columns: repeat(2,1fr);
+			}
+		}
+
+		.modal_footer {
+			display: flex;
+			padding: remy(15);
+			justify-content:flex-end;
+
+			.modal_close {
+				width: remy(120);
+				display: flex;
+				font-size: remy(15);
+				font-weight: bold;
+				padding: remy(12) remy(6);
+				text-align: center;
+				justify-content: center;
+				align-items: center;
+				color: $white;
+				background-color: $black;
+				border: none;
+				outline: none;
+				border-radius: 3px;
+			}
+		}
+
+		@include desktop {
+			max-width: 80%;
+		}
+	}
+}

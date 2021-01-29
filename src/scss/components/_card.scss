@@ -1,0 +1,54 @@
+.item_card {
+	border-radius: 4px;
+	border: 1px solid $gray;
+	margin-right: remy(8);
+	margin-bottom: remy(20);
+	cursor: pointer;
+
+	&:nth-child(2n) {
+		margin-right: 0;
+
+		@include desktop {
+			margin-right: remy(8);
+		}
+	}
+
+	&:nth-child(4n) {
+		@include desktop {
+			margin-right: 0;
+		}
+	}
+
+	.card_image {
+		width: 100%;
+
+		@include desktop {
+			height: remy(429);
+		}
+	}
+
+	.card_body {
+		padding: remy(20);
+		
+		.card_title {
+			font-size: remy(24);
+			font-weight: 600;
+			margin: 0 0 remy(10) 0;
+		}
+
+		.year {
+			font-size: remy(20);
+			margin-bottom: 0;
+			font-weight: 500;
+			font-style: italic;
+		}
+
+		@include desktop {
+			padding: remy(15);
+		}
+	}
+
+	@include desktop {
+		margin-bottom: remy(15);
+	}
+}
