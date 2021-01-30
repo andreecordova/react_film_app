@@ -1,0 +1,15 @@
+.empty_container {
+	.message {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		width: 100%;
+		font-size: remy(24);
+		font-weight: 700;
+
+		@include desktop {
+			font-size: remy(32);
+		}
+	}
+}
