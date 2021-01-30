@@ -5,6 +5,11 @@ import React, { useState } from "react";
 import InputSearch from './components/InputSearch';
 import Results from './components/Results';
 import Modal from './components/Modal';
+import EmptyResults from './components/EmptyResults';
+
+//Functions
+import filteredMovies from './functions/filteredMovies';
+import checkResponse from './functions/checkResponse';
 
 //Variables
 import api from "./variables/api";
@@ -28,7 +33,9 @@ function App() {
       fetch(`${api.base}?apikey=${api.key}&s=${query}`)
       .then((response) => response.json())
       .then((response) => {
-        let real_data = response.Search;
+        let has_response = checkResponse(response);
+        let movies = has_response ? response.Search : [];
+        let real_data = movies.length > 0 ? filteredMovies(movies) : [ 'empty' ];
         
         setResults(real_data);
         setQuery("");
@@ -43,8 +50,6 @@ function App() {
       setSelected(response);
       setShow(true);
     });
-
-    setShow(true);
   };
 
   const close = () => {
@@ -62,9 +67,13 @@ function App() {
         <InputSearch search={search} change={change} />
       </section>
 
-      { results.length > 0 ? <Results results={results} open={open} /> : null }
+      { results.length > 0 ? 
+        results.length === 1 && results[0] === 'empty' ?
+        <EmptyResults /> : 
+        <Results results={results} open={open} /> : null
+      }
 
-      { show === true ? <Modal show={show} selected={selected} close={close} /> : null }
+      <Modal show={show} selected={selected} close={close} />
     </div>
   );
 }
