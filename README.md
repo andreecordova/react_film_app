@@ -1,4 +1,4 @@
-# React Film and Series app
+# React Film app
 
 A simple project to check films and series searching by name and using the openweather api
 
