@@ -1,12 +1,12 @@
 import React from 'react';
 import Result from './Result';
 
-function Results({results, open}) {
+function Results({ results, setSelected, setShow }) {
 	return (
 		<div className="results_container">
 			{
 				results.map((result, index) => (
-					<Result key={index} id={result.imdbID} result={result} open={open} />
+					<Result key={index} id={result.imdbID} result={result} setSelected={setSelected} setShow={setShow} />
 				))
 			}
 		</div>

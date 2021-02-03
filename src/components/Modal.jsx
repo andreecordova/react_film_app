@@ -1,6 +1,11 @@
 import React from 'react'
 
-function Modal({ show, selected, close }) {
+function Modal({ show, selected, setSelected, setShow }) {
+	const close = () => {
+    setSelected(null)
+    setShow(false);
+	};
+	
 	return (
 		<div className={show ? 'modal show' : 'modal'} onClick={close}>
 			{ show ? 
